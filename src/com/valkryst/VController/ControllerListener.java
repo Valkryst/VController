@@ -66,7 +66,7 @@ public class ControllerListener implements Runnable {
             Event event = new Event();
 
             while (eventQueue.getNextEvent(event)) {
-                radio.transmit(event.getComponent().getName(), event);
+                radio.transmit("CONTROLLER", event);
                 event = new Event();
             }
         });
