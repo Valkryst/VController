@@ -125,8 +125,6 @@ public class LogitechRumblePad2 implements ControllerPreset {
         // Left is 1.0
         if (isInRange(value, 0.95f, 1.0f)) {
             return DirectionType.LEFT;
-        } else if (isInRange(value, 0.0f, 0.05f)) {
-            return DirectionType.LEFT;
         }
 
         // Right is 0.5
