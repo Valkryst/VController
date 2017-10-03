@@ -2,11 +2,12 @@ package com.valkryst.VController.preset;
 
 import com.valkryst.VController.ButtonType;
 import com.valkryst.VController.DirectionType;
+import lombok.NonNull;
 import net.java.games.input.Event;
 
 public class LogitechRumblePad2 implements ControllerPreset {
     @Override
-    public ButtonType getButtonType(final Event event) {
+    public ButtonType getButtonType(final @NonNull Event event) {
         switch (event.getComponent().getName()) {
             // Shoulder Buttons.
             case "Top 2": {
@@ -89,7 +90,7 @@ public class LogitechRumblePad2 implements ControllerPreset {
     }
 
     @Override
-    public DirectionType getDPadDirection(final Event event) {
+    public DirectionType getDPadDirection(final @NonNull Event event) {
         final float value = event.getValue();
 
         // Up is 0.25
@@ -141,7 +142,7 @@ public class LogitechRumblePad2 implements ControllerPreset {
     }
 
     @Override
-    public DirectionType getAnalogStickDirection(final Event event) {
+    public DirectionType getAnalogStickDirection(final @NonNull Event event) {
         final float value = event.getValue();
 
         switch (event.getComponent().getName()) {
