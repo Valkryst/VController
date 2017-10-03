@@ -13,10 +13,10 @@ public final class ControllerHelper {
         String path = System.getProperty("java.library.path");
 
         if (path.isEmpty()) {
-            path = "libraries/JInput/";
-        } else {
-            path += ":libraries/JInput/";
+            path += ":";
         }
+
+        path = System.getProperty("user.dir") + "/libraries/JInput/";
 
         System.setProperty("java.library.path", path);
     }
