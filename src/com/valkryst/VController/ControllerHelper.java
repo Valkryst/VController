@@ -28,6 +28,8 @@ public final class ControllerHelper {
         } catch (final UnsatisfiedLinkError e) {
             addLibrariesToPath();
             return ControllerEnvironment.getDefaultEnvironment().getControllers();
+        } finally {
+            System.out.println("dfgjdfhguhdfjgij");
         }
     }
 
