@@ -2,6 +2,7 @@ package com.valkryst.VController;
 
 import com.valkryst.VController.preset.ControllerPreset;
 import com.valkryst.VController.preset.LogitechRumblePad2;
+import lombok.Getter;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
@@ -9,9 +10,29 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ControllerHelper {
-    // Prevent users from creating an instance.
-    private ControllerHelper() {}
+public class ControllerHelper {
+    static {
+        try {
+            instance = new ControllerHelper();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Getter private static ControllerHelper instance;
+
+    /**
+     * Constructs a new ControllerHelper
+     *
+     * @throws NoSuchFieldException
+     *        If there was an issue adding the libraries folder to the path.
+     *
+     * @throws IllegalAccessException
+     *        If there was an issue adding the libraries folder to the path.
+     */
+    private ControllerHelper() throws NoSuchFieldException, IllegalAccessException {
+        addLibrariesToPath();
+    }
 
     /**
      * Retrieves all connected controllers.
@@ -28,25 +49,8 @@ public final class ControllerHelper {
      *        cannot be loaded and if the fallback code
      *        also fails.
      */
-    public static Controller[] getAllControllers() {
-        try {
-            return ControllerEnvironment.getDefaultEnvironment().getControllers();
-        } catch (final UnsatisfiedLinkError e) {
-            // For some reason, that I can't figure out, the UnsatisfiedLinkError
-            // totally bypasses the catch clause, so I've moved the exception-
-            // handling code into the finally.
-        } finally {
-            try {
-                System.out.println("Yeah, catch block is running");
-                addLibrariesToPath();
-                return ControllerEnvironment.getDefaultEnvironment().getControllers();
-            } catch (IllegalAccessException | NoSuchFieldException ee) {
-                ee.printStackTrace();
-            }
-        }
-
-        throw new IllegalStateException("Unable to load libraries. Fallback method " +
-                                        "has also failed.");
+    public Controller[] getAllControllers() {
+        return ControllerEnvironment.getDefaultEnvironment().getControllers();
     }
 
     /**
@@ -55,7 +59,7 @@ public final class ControllerHelper {
      * @return
      *        The list of supported connected controllers.
      */
-    public static List<Controller> getSupportedControllers() {
+    public List<Controller> getSupportedControllers() {
         final Controller[] controllers = getAllControllers();
         final List<Controller> supportedControllers = new ArrayList<>();
 
@@ -83,7 +87,7 @@ public final class ControllerHelper {
      * @throws UnsupportedOperationException
      *        If no preset exists for the controller.
      */
-    public static ControllerPreset getControllerPreset(final Controller controller) {
+    public ControllerPreset getControllerPreset(final Controller controller) {
         switch (controller.getName()) {
             case "Logitech Logitech RumblePad 2 USB": {
                 return new LogitechRumblePad2();
@@ -104,7 +108,7 @@ public final class ControllerHelper {
      * @throws IllegalAccessException
      *       If the sys_paths field is final or inaccessible.
      */
-    public static void addLibrariesToPath() throws NoSuchFieldException, IllegalAccessException {
+    public void addLibrariesToPath() throws NoSuchFieldException, IllegalAccessException {
         String path = System.getProperty("java.library.path");
 
         if (path.isEmpty() == false) {
@@ -116,7 +120,7 @@ public final class ControllerHelper {
         System.setProperty("java.library.path", path);
 
         // Set the sys_paths field to null.
-        // This will cause the library paths to be re-initalized when a library
+        // This will cause the library paths to be re-initialized when a library
         // is next loaded.
         final Field sysPathsField = ClassLoader.class.getDeclaredField("sys_paths");
         sysPathsField.setAccessible(true);
