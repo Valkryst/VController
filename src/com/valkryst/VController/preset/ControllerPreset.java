@@ -2,6 +2,7 @@ package com.valkryst.VController.preset;
 
 import com.valkryst.VController.ButtonType;
 import com.valkryst.VController.DirectionType;
+import lombok.NonNull;
 import net.java.games.input.Event;
 
 public interface ControllerPreset {
@@ -13,8 +14,11 @@ public interface ControllerPreset {
      *
      * @return
      *        The button that caused the event.
+     *
+     * @throws NullPointerException
+     *        If the event is null.
      */
-    default ButtonType getButtonType(final Event event) {
+    default ButtonType getButtonType(final @NonNull Event event) {
         return ButtonType.UNKNOWN;
     }
 
@@ -27,8 +31,11 @@ public interface ControllerPreset {
      *
      * @return
      *        The direction.
+     *
+     * @throws NullPointerException
+     *        If the event is null.
      */
-    default DirectionType getDPadDirection(final Event event) {
+    default DirectionType getDPadDirection(final @NonNull Event event) {
         return DirectionType.UNKNOWN;
     }
 
@@ -41,8 +48,11 @@ public interface ControllerPreset {
      *
      * @return
      *        The direction.
+     *
+     * @throws NullPointerException
+     *        If the event is null.
      */
-    default DirectionType getAnalogStickDirection(final Event event) {
+    default DirectionType getAnalogStickDirection(final @NonNull Event event) {
         return DirectionType.UNKNOWN;
     }
 
