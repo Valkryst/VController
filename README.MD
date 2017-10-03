@@ -6,6 +6,6 @@
 
 ## Requirements
 
-You *must* include the *.dll files from [here](http://ci.newdawnsoftware.com/job/JInput/lastBuild/artifact/dist/) along with your Jar file.
+You *must* include the *.dll, *.so, and *.jnilib files from [here](http://ci.newdawnsoftware.com/job/JInput/lastBuild/artifact/dist/) along with your Jar file.
 
-You *must* run your Jar with the `-Djava.library.path=folderName/` parameter, where folderName is the name of the folder that contains the *.dll files.
+You *must* run your Jar with the `-Djava.library.path=folderName/` parameter, where folderName is the name of the folder that contains the *.dll, *.so, and *.jnilib files.
