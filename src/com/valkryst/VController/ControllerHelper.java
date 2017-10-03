@@ -12,7 +12,7 @@ public final class ControllerHelper {
     static {
         String path = System.getProperty("java.library.path");
 
-        if (path.isEmpty()) {
+        if (path.isEmpty() == false) {
             path += ":";
         }
 
