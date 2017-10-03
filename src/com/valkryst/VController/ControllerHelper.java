@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class ControllerHelper {
+    static {
+        String path = System.getProperty("java.library.path");
+        path += ":/libraries/JInput/";
+        System.setProperty("java.library.path", path);
+    }
+
     // Prevent users from creating an instance.
     private ControllerHelper() {}
 
