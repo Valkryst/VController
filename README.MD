@@ -1,4 +1,4 @@
-[![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg)](https://github.com/Valkryst/VController/blob/master/LICENSE.md) ![](https://travis-ci.org/Valkryst/VController.svg?branch=master)
+[![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg)](https://github.com/Valkryst/VController/blob/master/LICENSE.md) ![](https://travis-ci.org/Valkryst/VController.svg?branch=master) [![codecov](https://codecov.io/gh/Valkryst/VController/branch/master/graph/badge.svg)](https://codecov.io/gh/Valkryst/VController)
 
 ## Links
 
