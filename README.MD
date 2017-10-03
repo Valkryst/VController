@@ -3,3 +3,7 @@
 ## Links
 
 * [JavaDoc Documentation](https://valkryst.github.io/VController/)
+
+## Requirements
+
+You *must* have a folder named "libraries" with another folder named "JInput" inside of it. Within the "JInput" folder, you *must* include all of the *.dll files from [here](http://ci.newdawnsoftware.com/job/JInput/lastBuild/artifact/dist/).
