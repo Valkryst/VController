@@ -41,6 +41,7 @@ public class ControllerListener implements Runnable {
     public ControllerListener(@NonNull final Controller controller, final int pollDelay) {
         this.controller = controller;
         radio = new Radio<>();
+        this.pollDelay = pollDelay;
 
         thread = new Thread(this);
         thread.start();
