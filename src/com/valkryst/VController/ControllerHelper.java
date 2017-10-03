@@ -26,10 +26,11 @@ public final class ControllerHelper {
         try {
             return ControllerEnvironment.getDefaultEnvironment().getControllers();
         } catch (final UnsatisfiedLinkError e) {
+            // The exception totally ignores the catch block.
+            // Can't find a reason why.
+        } finally {
             addLibrariesToPath();
             return ControllerEnvironment.getDefaultEnvironment().getControllers();
-        } finally {
-            System.out.println("dfgjdfhguhdfjgij");
         }
     }
 
