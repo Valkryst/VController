@@ -55,7 +55,7 @@ public class ControllerListener implements Runnable {
      *        The controller being listened to.
      */
     public ControllerListener(@NonNull final Controller controller) {
-        this(controller, 16);
+        this(controller, 64);
     }
 
     @Override
