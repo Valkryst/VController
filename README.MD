@@ -6,4 +6,6 @@
 
 ## Requirements
 
-You *must* have a folder named "libraries" with another folder named "JInput" inside of it. Within the "JInput" folder, you *must* include all of the *.dll files from [here](http://ci.newdawnsoftware.com/job/JInput/lastBuild/artifact/dist/).
+You *must* include the *.dll files from [here](http://ci.newdawnsoftware.com/job/JInput/lastBuild/artifact/dist/) along with your Jar file.
+
+You *must* run your Jar with the '-D-Djava.library.path=folderName/' parameter, where folderName is the name of the folder that contains the *.dll files.
