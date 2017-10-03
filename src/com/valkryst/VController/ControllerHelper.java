@@ -11,7 +11,13 @@ import java.util.List;
 public final class ControllerHelper {
     static {
         String path = System.getProperty("java.library.path");
-        path += ":/libraries/JInput/";
+
+        if (path.isEmpty()) {
+            path = "libraries/JInput/";
+        } else {
+            path += ":libraries/JInput/";
+        }
+
         System.setProperty("java.library.path", path);
     }
 
