@@ -10,26 +10,25 @@ import java.util.List;
 
 public final class ControllerHelper {
     // Prevent users from creating an instance.
-    private ControllerHelper() {
-        String path = System.getProperty("java.library.path");
-
-        if (path.isEmpty() == false) {
-            path += ":";
-        }
-
-        path += System.getProperty("user.dir") + "/libraries/JInput";
-
-        System.setProperty("java.library.path", path);
-    }
+    private ControllerHelper() {}
 
     /**
      * Retrieves all connected controllers.
      *
      * @return
      *        The array of connected controllers.
+     *
+     * @throws UnsatisfiedLinkError
+     *        If one of the libraries, required by JInput,
+     *        cannot be loaded.
      */
     public static Controller[] getAllControllers() {
-        return ControllerEnvironment.getDefaultEnvironment().getControllers();
+        try {
+            return ControllerEnvironment.getDefaultEnvironment().getControllers();
+        } catch (final UnsatisfiedLinkError e) {
+            addLibrariesToPath();
+            return ControllerEnvironment.getDefaultEnvironment().getControllers();
+        }
     }
 
     /**
@@ -76,5 +75,18 @@ public final class ControllerHelper {
                 throw new UnsupportedOperationException("No preset exists for the '" + controller.getName() + "' controller.");
             }
         }
+    }
+
+    /** Adds the libraries folder to the path. */
+    public static void addLibrariesToPath() {
+        String path = System.getProperty("java.library.path");
+
+        if (path.isEmpty() == false) {
+            path += ":";
+        }
+
+        path += System.getProperty("user.dir") + "/libraries/JInput";
+
+        System.setProperty("java.library.path", path);
     }
 }
