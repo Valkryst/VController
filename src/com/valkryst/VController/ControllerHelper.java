@@ -16,7 +16,7 @@ public final class ControllerHelper {
             path += ":";
         }
 
-        path = System.getProperty("user.dir") + "/libraries/JInput/";
+        path += System.getProperty("user.dir") + "/libraries/JInput";
 
         System.setProperty("java.library.path", path);
     }
