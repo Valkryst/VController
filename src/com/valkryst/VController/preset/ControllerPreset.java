@@ -65,7 +65,7 @@ public interface ControllerPreset {
      *        If the max value is less than the min value.
      */
     default boolean isInRange(final float value, final float min, final float max) {
-        if (min < max) {
+        if (max < min) {
             throw new IllegalArgumentException("The min (" + min + ") value " +
                                                "cannot be greater than the max (" +
                                                max + ") value.");
