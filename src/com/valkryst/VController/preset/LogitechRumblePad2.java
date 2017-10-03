@@ -150,7 +150,7 @@ public class LogitechRumblePad2 implements ControllerPreset {
             case "x":
             case "z": {
                 // Left is -1.0
-                if (isInRange(value, -1.25f, 0.2f)) {
+                if (isInRange(value, -1.25f, -0.2f)) {
                     return DirectionType.LEFT;
                 }
 
@@ -169,7 +169,7 @@ public class LogitechRumblePad2 implements ControllerPreset {
             case "y":
             case "rz": {
                 // Up is -1.0
-                if (isInRange(value, -1.25f, 0.2f)) {
+                if (isInRange(value, -1.25f, -0.2f)) {
                     return DirectionType.UP;
                 }
 
