@@ -32,6 +32,10 @@ public final class ControllerHelper {
         try {
             return ControllerEnvironment.getDefaultEnvironment().getControllers();
         } catch (final UnsatisfiedLinkError e) {
+            // For some reason, that I can't figure out, the UnsatisfiedLinkError
+            // totally bypasses the catch clause, so I've moved the exception-
+            // handling code into the finally.
+        } finally {
             try {
                 System.out.println("Yeah, catch block is running");
                 addLibrariesToPath();
