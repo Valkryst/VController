@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class ControllerHelper {
-    static {
+    // Prevent users from creating an instance.
+    private ControllerHelper() {
         String path = System.getProperty("java.library.path");
 
         if (path.isEmpty() == false) {
@@ -20,9 +21,6 @@ public final class ControllerHelper {
 
         System.setProperty("java.library.path", path);
     }
-
-    // Prevent users from creating an instance.
-    private ControllerHelper() {}
 
     /**
      * Retrieves all connected controllers.
