@@ -10,74 +10,91 @@ public class LogitechRumblePad2 implements ControllerPreset {
     public ButtonType getButtonType(final @NonNull Event event) {
         switch (event.getComponent().getName()) {
             // Shoulder Buttons.
+            case "Button 4":
             case "Top 2": {
                 return ButtonType.LEFT_SHOULDER_TOP;
             }
 
+            case "Button 6":
             case "Base": {
                 return ButtonType.LEFT_SHOULDER_BOTTOM;
             }
 
+            case "Button 5":
             case "Pinkie": {
                 return ButtonType.RIGHT_SHOULDER_TOP;
             }
 
+            case "Button 7":
             case "Base 2": {
                 return ButtonType.RIGHT_SHOULDER_BOTTOM;
             }
 
 
             // Directional Pad Buttons.
+            case "Hat Switch":
             case "pov": {
                 return ButtonType.DPAD;
             }
 
 
             // Face Pad Buttons.
+            case "Button 3":
             case "Top": {
                 return ButtonType.FACE_TOP;
             }
 
+            case "Button 1":
             case "Thumb": {
                 return ButtonType.FACE_BOTTOM;
             }
 
+            case "Button 0":
             case "Trigger": {
                 return ButtonType.FACE_LEFT;
             }
 
+            case "Button 2":
             case "Thumb 2": {
                 return ButtonType.FACE_RIGHT;
             }
 
 
             // Analog Stick Direction Controls.
+            case "X Axis":
             case "x":
+            case "Y Axis":
             case "y": {
                 return ButtonType.LEFT_STICK;
             }
 
+            case "Z Axis":
             case "z":
+            case "Z Rotation":
             case "rz": {
                 return ButtonType.RIGHT_STICK;
             }
 
 
             // Analog Stick Buttons.
+            case "Button 10":
             case "Base 5": {
                 return ButtonType.LEFT_STICK_BUTTON;
             }
 
+            case "Button 11":
             case "Base 6": {
                 return ButtonType.RIGHT_STICK_BUTTON;
             }
 
 
             // Center Buttons
+            case "Button 8":
             case "Base 3": {
                 return ButtonType.MISC_1;
             }
 
+            case "Button 9":
             case "Base 4": {
                 return ButtonType.MISC_2;
             }
