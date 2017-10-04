@@ -6,7 +6,7 @@
 
     <groupId>com.github.Valkryst</groupId>
     <artifactId>VController</artifactId>
-    <version>0.1-BETA</version>
+    <version>0.1.1-BETA</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
