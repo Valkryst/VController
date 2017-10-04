@@ -40,6 +40,7 @@ public class ControllerHelper {
 
         for (final Controller controller : controllers) {
             switch (controller.getName()) {
+                case "Logitech RumblePad 2 USB":
                 case "Logitech Logitech RumblePad 2 USB": {
                     supportedControllers.add(controller);
                     break;
@@ -64,6 +65,7 @@ public class ControllerHelper {
      */
     public static ControllerPreset getControllerPreset(final Controller controller) {
         switch (controller.getName()) {
+            case "Logitech RumblePad 2 USB":
             case "Logitech Logitech RumblePad 2 USB": {
                 return new LogitechRumblePad2();
             }
