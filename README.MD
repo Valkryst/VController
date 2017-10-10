@@ -31,7 +31,7 @@ Dependency:
     <dependency>
         <groupId>com.github.Valkryst</groupId>
         <artifactId>VController</artifactId>
-        <version>0.1.3-BETA</version>
+        <version>0.1.4-BETA</version>
     </dependency>
 
 ### Jar
