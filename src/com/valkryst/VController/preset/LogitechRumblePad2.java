@@ -7,6 +7,34 @@ import net.java.games.input.Event;
 
 public class LogitechRumblePad2 implements ControllerPreset {
     @Override
+    public ButtonType[] getSupportedButtonTypes() {
+        return new ButtonType[] {
+                ButtonType.UNKNOWN,
+
+                ButtonType.LEFT_SHOULDER_TOP,
+                ButtonType.LEFT_SHOULDER_BOTTOM,
+                ButtonType.RIGHT_SHOULDER_TOP,
+                ButtonType.RIGHT_SHOULDER_BOTTOM,
+
+                ButtonType.DPAD,
+
+                ButtonType.FACE_TOP,
+                ButtonType.FACE_BOTTOM,
+                ButtonType.FACE_LEFT,
+                ButtonType.FACE_RIGHT,
+
+                ButtonType.LEFT_STICK,
+                ButtonType.RIGHT_STICK,
+
+                ButtonType.LEFT_STICK_BUTTON,
+                ButtonType.RIGHT_STICK_BUTTON,
+
+                ButtonType.MISC_1,
+                ButtonType.MISC_2
+        };
+    }
+
+    @Override
     public ButtonType getButtonType(final @NonNull Event event) {
         switch (event.getComponent().getName()) {
             // Shoulder Buttons.
