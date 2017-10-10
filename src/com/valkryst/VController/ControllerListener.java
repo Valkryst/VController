@@ -32,11 +32,14 @@ public class ControllerListener implements Runnable {
      * Constructs a new ControllerListener.
      *
      * @param controller
-     *        The controller being listened to.
+     *          The controller being listened to.
      *
      * @param pollDelay
-     *        The delay between polling the controller for new
-     *        input, in milliseconds.
+     *          The delay between polling the controller for new
+     *          input, in milliseconds.
+     *
+     * @throws NullPointerException
+     *          If the controller is null.
      */
     public ControllerListener(@NonNull final Controller controller, final int pollDelay) {
         this.controller = controller;
@@ -53,6 +56,9 @@ public class ControllerListener implements Runnable {
      *
      * @param controller
      *        The controller being listened to.
+     *
+     * @throws NullPointerException
+     *          If the controller is null.
      */
     public ControllerListener(@NonNull final Controller controller) {
         this(controller, 64);
