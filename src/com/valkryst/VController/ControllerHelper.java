@@ -14,15 +14,6 @@ public class ControllerHelper {
      *
      * @return
      *        The array of connected controllers.
-     *
-     * @throws UnsatisfiedLinkError
-     *        If one of the libraries, required by JInput,
-     *        cannot be laded.
-     *
-     * @throws IllegalStateException
-     *        If one of the libraries, required by JInput,
-     *        cannot be loaded and if the fallback code
-     *        also fails.
      */
     public static Controller[] getAllControllers() {
         return ControllerEnvironment.getDefaultEnvironment().getControllers();
