@@ -7,6 +7,18 @@ import net.java.games.input.Event;
 
 public interface ControllerPreset {
     /**
+     * Retrieves an array of all button types used
+     * and supported by the controller.
+     *
+     * @return
+     *         The button types that are used and
+     *         supported by the controller.
+     */
+    default ButtonType[] getSupportedButtonTypes() {
+        return new ButtonType[] {ButtonType.UNKNOWN};
+    }
+
+    /**
      * Determines the button that caused an event.
      *
      * @param event
