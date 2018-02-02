@@ -13,7 +13,7 @@ You *must* run your Jar with the `-Djava.library.path=folderName/` parameter, wh
 
 ## Jar Files & Maven
 
-The Maven dependency is hosted off of JitPack, so you will need to add JitPack as a repository before you add VTerminal as a dependency.
+The Maven dependency is hosted off of JitPack, so you will need to add JitPack as a repository before you add VController as a dependency.
 
 ### Maven
 
