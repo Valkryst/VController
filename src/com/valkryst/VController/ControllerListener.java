@@ -52,7 +52,7 @@ public class ControllerListener implements Runnable {
 
     /**
      * Constructs a new ControllerListener with a poll
-     * delay of 16ms.
+     * delay of 64ms.
      *
      * @param controller
      *        The controller being listened to.
