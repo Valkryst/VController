@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="VController:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VController_jar</output-path>
+    <root id="archive" name="VController.jar">
+      <element id="module-output" name="VController" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/jinput/jinput-platform/2.0.7/jinput-platform-2.0.7-natives-linux.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/jutils/jutils/1.0.0/jutils-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.16.16/lombok-1.16.16.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/Valkryst/VRadio/1.2.0/VRadio-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/jinput/jinput/2.0.7/jinput-2.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/jinput/jinput-platform/2.0.7/jinput-platform-2.0.7-natives-osx.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/jinput/jinput-platform/2.0.7/jinput-platform-2.0.7-natives-windows.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
