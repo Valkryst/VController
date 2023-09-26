@@ -1,3 +1,6 @@
+[![Java CI with Maven](https://github.com/Valkryst/VController/actions/workflows/maven.yml/badge.svg)](https://github.com/Valkryst/VController/actions/workflows/maven.yml)
+[![CodeQL](https://github.com/Valkryst/VController/actions/workflows/codeql.yml/badge.svg)](https://github.com/Valkryst/VController/actions/workflows/codeql.yml)
+
 ## Table of Contents
 
 * [Installation](https://github.com/Valkryst/VController#installation)
