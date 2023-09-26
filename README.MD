@@ -1,8 +1,9 @@
-![](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiUm92NnZmM20xNVFndGF3Mm5KS0Zqai9XZUhFUjdZSnYxSUJlWU5Bd2g2bXU0a3l6aTBISHNSbDNkNEk4b0pEYjdVZVp1bEROT1hlbldzTy9SendTWllFPSIsIml2UGFyYW1ldGVyU3BlYyI6IkZoNktVMnJVZlM2QndSbmEiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master) [![Release](https://jitpack.io/v/Valkryst/VController.svg)](https://jitpack.io/#Valkryst/VController) 
+## Table of Contents
 
-## Links
-
-* [JavaDoc Documentation](https://valkryst.github.io/VController/)
+* [Installation](https://github.com/Valkryst/VController#installation)
+    * [Gradle](https://github.com/Valkryst/VController#-gradle)
+    * [Maven](https://github.com/Valkryst/VController#-maven)
+    * [sbt](https://github.com/Valkryst/VController#-scala-sbt)
 
 ## Requirements
 
@@ -10,30 +11,63 @@ You *must* include the *.dll, *.so, and *.jnilib files from [here](http://ci.new
 
 You *must* run your Jar with the `-Djava.library.path=folderName/` parameter, where folderName is the name of the folder that contains the *.dll, *.so, and *.jnilib files.
 
+## Installation
 
-## Jar Files & Maven
+VController is hosted on the [JitPack package repository](https://jitpack.io/#Valkryst/VController)
+which supports Gradle, Maven, and sbt.
 
-The Maven dependency is hosted off of JitPack, so you will need to add JitPack as a repository before you add VController as a dependency.
+### ![Gradle](https://i.imgur.com/qtc6bXq.png?1) Gradle
 
-### Maven
+Add JitPack to your `build.gradle` at the end of repositories.
 
-JitPack ([Example](https://github.com/Valkryst/VTerminal/blob/master/pom.xml)):
+```
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+Add VController as a dependency.
 
-Dependency:
+```
+dependencies {
+	implementation 'com.github.Valkryst:VController:0.1.4-BETA'
+}
+```
 
-    <dependency>
-        <groupId>com.github.Valkryst</groupId>
-        <artifactId>VController</artifactId>
-        <version>0.1.4-BETA</version>
-    </dependency>
+### ![Maven](https://i.imgur.com/2TZzobp.png?1) Maven
 
-### Jar
+Add JitPack as a repository.
 
-Jar files can be found on the [releases](https://github.com/Valkryst/VController/releases) page.
+``` xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+Add VController as a dependency.
+
+```xml
+<dependency>
+    <groupId>com.github.Valkryst</groupId>
+    <artifactId>VController</artifactId>
+    <version>0.1.4-BETA</version>
+</dependency>
+```
+
+### ![Scala SBT](https://i.imgur.com/Nqv3mVd.png?1) Scala SBT
+
+Add JitPack as a resolver.
+
+```
+resolvers += "jitpack" at "https://jitpack.io"
+```
+
+Add VController as a dependency.
+
+```
+libraryDependencies += "com.github.Valkryst" % "VController" % "0.1.4-BETA"
