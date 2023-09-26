@@ -1,6 +1,6 @@
-package com.valkryst.VController;
+package com.valkryst.VController.enums;
 
-public enum ButtonType {
+public enum Button {
     UNKNOWN,
 
     LEFT_SHOULDER_TOP,

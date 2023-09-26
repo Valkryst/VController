@@ -1,6 +1,6 @@
-package com.valkryst.VController;
+package com.valkryst.VController.enums;
 
-public enum DirectionType {
+public enum Direction {
     UNKNOWN,
 
     NONE,

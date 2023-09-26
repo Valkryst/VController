@@ -1,7 +1,7 @@
 package com.valkryst.VController.preset;
 
-import com.valkryst.VController.ButtonType;
-import com.valkryst.VController.DirectionType;
+import com.valkryst.VController.enums.Button;
+import com.valkryst.VController.enums.Direction;
 import lombok.NonNull;
 import net.java.games.input.Event;
 
@@ -14,8 +14,8 @@ public interface ControllerPreset {
      *         The button types that are used and
      *         supported by the controller.
      */
-    default ButtonType[] getSupportedButtonTypes() {
-        return new ButtonType[] {ButtonType.UNKNOWN};
+    default Button[] getSupportedButtonTypes() {
+        return new Button[] {Button.UNKNOWN};
     }
 
     /**
@@ -30,8 +30,8 @@ public interface ControllerPreset {
      * @throws NullPointerException
      *        If the event is null.
      */
-    default ButtonType getButtonType(final @NonNull Event event) {
-        return ButtonType.UNKNOWN;
+    default Button getButtonType(final @NonNull Event event) {
+        return Button.UNKNOWN;
     }
 
     /**
@@ -47,8 +47,8 @@ public interface ControllerPreset {
      * @throws NullPointerException
      *        If the event is null.
      */
-    default DirectionType getDPadDirection(final @NonNull Event event) {
-        return DirectionType.UNKNOWN;
+    default Direction getDPadDirection(final @NonNull Event event) {
+        return Direction.UNKNOWN;
     }
 
     /**
@@ -64,8 +64,8 @@ public interface ControllerPreset {
      * @throws NullPointerException
      *        If the event is null.
      */
-    default DirectionType getAnalogStickDirection(final @NonNull Event event) {
-        return DirectionType.UNKNOWN;
+    default Direction getAnalogStickDirection(final @NonNull Event event) {
+        return Direction.UNKNOWN;
     }
 
     /**

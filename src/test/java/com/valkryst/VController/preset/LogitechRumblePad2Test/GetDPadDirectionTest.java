@@ -1,6 +1,6 @@
 package com.valkryst.VController.preset.LogitechRumblePad2Test;
 
-import com.valkryst.VController.DirectionType;
+import com.valkryst.VController.enums.Direction;
 import com.valkryst.VController.preset.LogitechRumblePad2;
 import net.java.games.input.Event;
 import org.junit.Assert;
@@ -20,7 +20,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.2f ; f < 0.3f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.UP, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.UP, preset.getDPadDirection(event));
         }
     }
 
@@ -30,7 +30,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.075f ; f < 0.175f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.UP_LEFT, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.UP_LEFT, preset.getDPadDirection(event));
         }
     }
 
@@ -40,7 +40,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.325f ; f < 0.425f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.UP_RIGHT, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.UP_RIGHT, preset.getDPadDirection(event));
         }
     }
 
@@ -50,7 +50,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.7f ; f < 0.8f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.DOWN, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.DOWN, preset.getDPadDirection(event));
         }
     }
 
@@ -60,7 +60,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.825f ; f < 0.925f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.DOWN_LEFT, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.DOWN_LEFT, preset.getDPadDirection(event));
         }
     }
 
@@ -70,7 +70,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.575f ; f < 0.675f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.DOWN_RIGHT, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.DOWN_RIGHT, preset.getDPadDirection(event));
         }
     }
 
@@ -80,7 +80,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.95f ; f < 1.0f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.LEFT, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.LEFT, preset.getDPadDirection(event));
         }
     }
 
@@ -90,7 +90,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.45f ; f < 0.55f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.RIGHT, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.RIGHT, preset.getDPadDirection(event));
         }
     }
 
@@ -100,7 +100,7 @@ public class GetDPadDirectionTest {
 
         for (float f = 0.0f ; f < 0.05f ; f += 0.001) {
             event.set(null, f, 0);
-            Assert.assertEquals(DirectionType.NONE, preset.getDPadDirection(event));
+            Assert.assertEquals(Direction.NONE, preset.getDPadDirection(event));
         }
     }
 }

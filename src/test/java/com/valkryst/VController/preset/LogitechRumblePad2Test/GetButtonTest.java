@@ -1,6 +1,6 @@
 package com.valkryst.VController.preset.LogitechRumblePad2Test;
 
-import com.valkryst.VController.ButtonType;
+import com.valkryst.VController.enums.Button;
 import com.valkryst.VController.preset.LogitechRumblePad2;
 import com.valkryst.VController.preset.TestHelperComponent;
 import net.java.games.input.Component;
@@ -8,7 +8,7 @@ import net.java.games.input.Event;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class GetButtonTypeTest {
+public class GetButtonTest {
     private final LogitechRumblePad2 preset = new LogitechRumblePad2();
 
     @Test(expected=NullPointerException.class)
@@ -22,7 +22,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.LEFT_SHOULDER_TOP, preset.getButtonType(event));
+        Assert.assertEquals(Button.LEFT_SHOULDER_TOP, preset.getButtonType(event));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.LEFT_SHOULDER_BOTTOM, preset.getButtonType(event));
+        Assert.assertEquals(Button.LEFT_SHOULDER_BOTTOM, preset.getButtonType(event));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.RIGHT_SHOULDER_TOP, preset.getButtonType(event));
+        Assert.assertEquals(Button.RIGHT_SHOULDER_TOP, preset.getButtonType(event));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.RIGHT_SHOULDER_BOTTOM, preset.getButtonType(event));
+        Assert.assertEquals(Button.RIGHT_SHOULDER_BOTTOM, preset.getButtonType(event));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.DPAD, preset.getButtonType(event));
+        Assert.assertEquals(Button.DPAD, preset.getButtonType(event));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.FACE_TOP, preset.getButtonType(event));
+        Assert.assertEquals(Button.FACE_TOP, preset.getButtonType(event));
     }
 
     @Test
@@ -76,7 +76,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.FACE_BOTTOM, preset.getButtonType(event));
+        Assert.assertEquals(Button.FACE_BOTTOM, preset.getButtonType(event));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.FACE_LEFT, preset.getButtonType(event));
+        Assert.assertEquals(Button.FACE_LEFT, preset.getButtonType(event));
     }
 
     @Test
@@ -94,7 +94,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.FACE_RIGHT, preset.getButtonType(event));
+        Assert.assertEquals(Button.FACE_RIGHT, preset.getButtonType(event));
     }
 
     @Test
@@ -103,7 +103,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.LEFT_STICK, preset.getButtonType(event));
+        Assert.assertEquals(Button.LEFT_STICK, preset.getButtonType(event));
     }
 
     @Test
@@ -112,7 +112,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.LEFT_STICK, preset.getButtonType(event));
+        Assert.assertEquals(Button.LEFT_STICK, preset.getButtonType(event));
     }
 
     @Test
@@ -121,7 +121,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.RIGHT_STICK, preset.getButtonType(event));
+        Assert.assertEquals(Button.RIGHT_STICK, preset.getButtonType(event));
     }
 
     @Test
@@ -130,7 +130,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.RIGHT_STICK, preset.getButtonType(event));
+        Assert.assertEquals(Button.RIGHT_STICK, preset.getButtonType(event));
     }
 
     @Test
@@ -139,7 +139,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.LEFT_STICK_BUTTON, preset.getButtonType(event));
+        Assert.assertEquals(Button.LEFT_STICK_BUTTON, preset.getButtonType(event));
     }
 
     @Test
@@ -148,7 +148,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.RIGHT_STICK_BUTTON, preset.getButtonType(event));
+        Assert.assertEquals(Button.RIGHT_STICK_BUTTON, preset.getButtonType(event));
     }
 
     @Test
@@ -157,7 +157,7 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.MISC_1, preset.getButtonType(event));
+        Assert.assertEquals(Button.MISC_1, preset.getButtonType(event));
     }
 
     @Test
@@ -166,6 +166,6 @@ public class GetButtonTypeTest {
         final Event event = new Event();
         event.set(component, 0f, 0);
 
-        Assert.assertEquals(ButtonType.MISC_2, preset.getButtonType(event));
+        Assert.assertEquals(Button.MISC_2, preset.getButtonType(event));
     }
 }

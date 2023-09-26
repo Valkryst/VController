@@ -1,6 +1,6 @@
 package com.valkryst.VController.preset.LogitechRumblePad2Test;
 
-import com.valkryst.VController.DirectionType;
+import com.valkryst.VController.enums.Direction;
 import com.valkryst.VController.preset.LogitechRumblePad2;
 import com.valkryst.VController.preset.TestHelperComponent;
 import net.java.games.input.Component;
@@ -23,7 +23,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -1.25f ; f < -0.2f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.LEFT, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.LEFT, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -34,7 +34,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -1.25f ; f < -0.2f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.LEFT, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.LEFT, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -45,7 +45,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -0.1f ; f < 0.1f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.NONE, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.NONE, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -56,7 +56,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -0.1f ; f < 0.1f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.NONE, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.NONE, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -67,7 +67,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = 0.2f ; f < 1.25f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.RIGHT, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.RIGHT, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -78,7 +78,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = 0.2f ; f < 1.25f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.RIGHT, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.RIGHT, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -89,7 +89,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -1.25f ; f < -0.2f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.UP, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.UP, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -100,7 +100,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -1.25f ; f < -0.2f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.UP, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.UP, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -111,7 +111,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -0.1f ; f < 0.1f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.NONE, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.NONE, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -122,7 +122,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = -0.1f ; f < 0.1f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.NONE, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.NONE, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -133,7 +133,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = 0.2f ; f < 1.25f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.DOWN, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.DOWN, preset.getAnalogStickDirection(event));
         }
     }
 
@@ -144,7 +144,7 @@ public class GetAnalogStickDirectionTest {
 
         for (float f = 0.2f ; f < 1.25f ; f += 0.01) {
             event.set(component, f, 0);
-            Assert.assertEquals(DirectionType.DOWN, preset.getAnalogStickDirection(event));
+            Assert.assertEquals(Direction.DOWN, preset.getAnalogStickDirection(event));
         }
     }
 }
