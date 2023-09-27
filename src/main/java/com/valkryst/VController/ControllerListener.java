@@ -1,83 +1,16 @@
 package com.valkryst.VController;
 
-import com.valkryst.VRadio.Radio;
-import lombok.Getter;
-import lombok.NonNull;
 import net.java.games.input.Controller;
 import net.java.games.input.Event;
-import net.java.games.input.EventQueue;
 
-import javax.swing.Timer;
+import java.util.EventListener;
 
-public class ControllerListener implements Runnable {
-    /** The thread that the listener is running on. */
-    @Getter private final Thread thread;
-
-    /** The controller being listened to. */
-    @Getter private final Controller controller;
-
-    /** The timer used to poll for, and transmit, new events. */
-    @Getter private Timer timer;
-
-    /** The radio used to transmit events. */
-    @Getter private final Radio<Event> radio;
-
+/** The listener interface for receiving {@link Controller} {@link Event}s. */
+public interface ControllerListener extends EventListener {
     /**
-     * The delay between polling the controller for new input, in
-     * milliseconds.
+     * Invoked when an {@link Event} occurs.
+     *
+     * @param event {@code Event} to be processed.
      */
-    @Getter private int pollDelay;
-
-    /**
-     * Constructs a new ControllerListener.
-     *
-     * @param controller
-     *          The controller being listened to.
-     *
-     * @param pollDelay
-     *          The delay between polling the controller for new
-     *          input, in milliseconds.
-     *
-     * @throws NullPointerException
-     *          If the controller is null.
-     */
-    public ControllerListener(@NonNull final Controller controller, final int pollDelay) {
-        this.controller = controller;
-        radio = new Radio<>();
-        this.pollDelay = pollDelay;
-
-        thread = new Thread(this);
-        thread.start();
-    }
-
-    /**
-     * Constructs a new ControllerListener with a poll
-     * delay of 64ms.
-     *
-     * @param controller
-     *        The controller being listened to.
-     *
-     * @throws NullPointerException
-     *          If the controller is null.
-     */
-    public ControllerListener(@NonNull final Controller controller) {
-        this(controller, 64);
-    }
-
-    @Override
-    public void run() {
-        timer = new Timer(pollDelay, e -> {
-            controller.poll();
-
-            final EventQueue eventQueue = controller.getEventQueue();
-            Event event = new Event();
-
-            while (eventQueue.getNextEvent(event)) {
-                radio.transmit("CONTROLLER", event);
-                event = new Event();
-            }
-        });
-
-        timer.start();
-    }
+    void eventOccurred(final Event event);
 }
