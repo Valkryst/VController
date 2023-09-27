@@ -42,7 +42,7 @@ Add VController as a dependency.
 
 ```
 dependencies {
-	implementation 'com.github.Valkryst:VController:2023.9.26'
+	implementation 'com.github.Valkryst:VController:2023.9.27'
 }
 ```
 
@@ -64,7 +64,7 @@ Add VController as a dependency.
 <dependency>
     <groupId>com.github.Valkryst</groupId>
     <artifactId>VController</artifactId>
-    <version>2023.9.26</version>
+    <version>2023.9.27</version>
 </dependency>
 ```
 
@@ -79,7 +79,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 Add VController as a dependency.
 
 ```
-libraryDependencies += "com.github.Valkryst" % "VController" % "2023.9.26"
+libraryDependencies += "com.github.Valkryst" % "VController" % "2023.9.27"
 ```
 
 ## Example
