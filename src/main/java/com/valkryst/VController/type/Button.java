@@ -1,4 +1,4 @@
-package com.valkryst.VController.enums;
+package com.valkryst.VController.type;
 
 public enum Button {
     UNKNOWN,

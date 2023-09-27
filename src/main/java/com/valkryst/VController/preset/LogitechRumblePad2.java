@@ -1,7 +1,7 @@
 package com.valkryst.VController.preset;
 
-import com.valkryst.VController.enums.Button;
-import com.valkryst.VController.enums.Direction;
+import com.valkryst.VController.type.Button;
+import com.valkryst.VController.type.Direction;
 import lombok.NonNull;
 import net.java.games.input.Event;
 
@@ -9,129 +9,63 @@ public class LogitechRumblePad2 implements ControllerPreset {
     @Override
     public Button[] getSupportedButtonTypes() {
         return new Button[] {
-                Button.UNKNOWN,
+            Button.UNKNOWN,
 
-                Button.LEFT_SHOULDER_TOP,
-                Button.LEFT_SHOULDER_BOTTOM,
-                Button.RIGHT_SHOULDER_TOP,
-                Button.RIGHT_SHOULDER_BOTTOM,
+            Button.LEFT_SHOULDER_TOP,
+            Button.LEFT_SHOULDER_BOTTOM,
+            Button.RIGHT_SHOULDER_TOP,
+            Button.RIGHT_SHOULDER_BOTTOM,
 
-                Button.DPAD,
+            Button.DPAD,
 
-                Button.FACE_TOP,
-                Button.FACE_BOTTOM,
-                Button.FACE_LEFT,
-                Button.FACE_RIGHT,
+            Button.FACE_TOP,
+            Button.FACE_BOTTOM,
+            Button.FACE_LEFT,
+            Button.FACE_RIGHT,
 
-                Button.LEFT_STICK,
-                Button.RIGHT_STICK,
+            Button.LEFT_STICK,
+            Button.RIGHT_STICK,
 
-                Button.LEFT_STICK_BUTTON,
-                Button.RIGHT_STICK_BUTTON,
+            Button.LEFT_STICK_BUTTON,
+            Button.RIGHT_STICK_BUTTON,
 
-                Button.MISC_1,
-                Button.MISC_2
+            Button.MISC_1,
+            Button.MISC_2
         };
     }
 
     @Override
     public Button getButtonType(final @NonNull Event event) {
-        switch (event.getComponent().getName()) {
+        return switch (event.getComponent().getName()) {
             // Shoulder Buttons.
-            case "Button 4":
-            case "Top 2": {
-                return Button.LEFT_SHOULDER_TOP;
-            }
-
-            case "Button 6":
-            case "Base": {
-                return Button.LEFT_SHOULDER_BOTTOM;
-            }
-
-            case "Button 5":
-            case "Pinkie": {
-                return Button.RIGHT_SHOULDER_TOP;
-            }
-
-            case "Button 7":
-            case "Base 2": {
-                return Button.RIGHT_SHOULDER_BOTTOM;
-            }
-
+            case "Button 4", "Top 2" -> Button.LEFT_SHOULDER_TOP;
+            case "Button 6", "Base" -> Button.LEFT_SHOULDER_BOTTOM;
+            case "Button 5", "Pinkie" -> Button.RIGHT_SHOULDER_TOP;
+            case "Button 7", "Base 2" -> Button.RIGHT_SHOULDER_BOTTOM;
 
             // Directional Pad Buttons.
-            case "Hat Switch":
-            case "pov": {
-                return Button.DPAD;
-            }
-
+            case "Hat Switch", "pov" -> Button.DPAD;
 
             // Face Pad Buttons.
-            case "Button 3":
-            case "Top": {
-                return Button.FACE_TOP;
-            }
-
-            case "Button 1":
-            case "Thumb": {
-                return Button.FACE_BOTTOM;
-            }
-
-            case "Button 0":
-            case "Trigger": {
-                return Button.FACE_LEFT;
-            }
-
-            case "Button 2":
-            case "Thumb 2": {
-                return Button.FACE_RIGHT;
-            }
-
+            case "Button 3", "Top" -> Button.FACE_TOP;
+            case "Button 1", "Thumb" -> Button.FACE_BOTTOM;
+            case "Button 0", "Trigger" -> Button.FACE_LEFT;
+            case "Button 2", "Thumb 2" -> Button.FACE_RIGHT;
 
             // Analog Stick Direction Controls.
-            case "X Axis":
-            case "x":
-            case "Y Axis":
-            case "y": {
-                return Button.LEFT_STICK;
-            }
-
-            case "Z Axis":
-            case "z":
-            case "Z Rotation":
-            case "rz": {
-                return Button.RIGHT_STICK;
-            }
-
+            case "X Axis", "x", "Y Axis", "y" -> Button.LEFT_STICK;
+            case "Z Axis", "z", "Z Rotation", "rz" -> Button.RIGHT_STICK;
 
             // Analog Stick Buttons.
-            case "Button 10":
-            case "Base 5": {
-                return Button.LEFT_STICK_BUTTON;
-            }
-
-            case "Button 11":
-            case "Base 6": {
-                return Button.RIGHT_STICK_BUTTON;
-            }
-
+            case "Button 10", "Base 5" -> Button.LEFT_STICK_BUTTON;
+            case "Button 11", "Base 6" -> Button.RIGHT_STICK_BUTTON;
 
             // Center Buttons
-            case "Button 8":
-            case "Base 3": {
-                return Button.MISC_1;
-            }
+            case "Button 8", "Base 3" -> Button.MISC_1;
+            case "Button 9", "Base 4" -> Button.MISC_2;
 
-            case "Button 9":
-            case "Base 4": {
-                return Button.MISC_2;
-            }
-
-
-            default: {
-                return Button.UNKNOWN;
-            }
-        }
+            default -> Button.UNKNOWN;
+        };
     }
 
     @Override

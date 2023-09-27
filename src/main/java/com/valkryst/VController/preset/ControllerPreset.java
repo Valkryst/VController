@@ -1,7 +1,7 @@
 package com.valkryst.VController.preset;
 
-import com.valkryst.VController.enums.Button;
-import com.valkryst.VController.enums.Direction;
+import com.valkryst.VController.type.Button;
+import com.valkryst.VController.type.Direction;
 import lombok.NonNull;
 import net.java.games.input.Event;
 
