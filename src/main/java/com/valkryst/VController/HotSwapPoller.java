@@ -6,6 +6,7 @@ import net.java.games.input.ControllerEnvironment;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -16,6 +17,12 @@ import java.util.concurrent.TimeUnit;
 public class HotSwapPoller {
     /** Singleton instance. */
     private final static HotSwapPoller INSTANCE = new HotSwapPoller();
+
+    /** JInput threads to kill when reinitializing the {@code net.java.games.input.DefaultControllerEnvironment}. */
+    private final static String[] JINPUT_THREADS_TO_KILL = {
+        "net.java.games.input.RawInputEventQueue$QueueThread"
+    };
+
 
     /** {@link HotSwapListener}s to notify when the set of {@link Controller}s changes. */
     private final List<HotSwapListener> listeners = new CopyOnWriteArrayList<>();
@@ -34,12 +41,13 @@ public class HotSwapPoller {
      * @throws ClassNotFoundException If there is an error getting the {@link Controller}s.
      * @throws IllegalAccessException  If there is an error getting the {@link Controller}s.
      * @throws IllegalStateException If the {@link HotSwapPoller} is already running or if the current {@link ControllerEnvironment} is not supported.
-     * @throws InstantiationException  If there is an error getting the {@link Controller}s.
+     * @throws InstantiationException If there is an error getting the {@link Controller}s.
+     * @throws InterruptedException If there is an error getting the {@link Controller}s.
      * @throws InvocationTargetException  If there is an error getting the {@link Controller}s.
      * @throws NoSuchFieldException  If there is an error getting the {@link Controller}s.
      * @throws NoSuchMethodException  If there is an error getting the {@link Controller}s.
      */
-    public void start() throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException {
+    public void start() throws ClassNotFoundException, IllegalAccessException, InstantiationException, InterruptedException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException {
         final var oldControllers = getControllers();
 
         synchronized (this) {
@@ -126,17 +134,27 @@ public class HotSwapPoller {
      * @throws IllegalAccessException If there is an error instantiating {@code DefaultControllerEnvironment}.
      * @throws IllegalStateException If the current {@link ControllerEnvironment} is not supported.
      * @throws InstantiationException If there is an error instantiating {@code DefaultControllerEnvironment}.
+     * @throws InterruptedException If there is an error interrupting one of the threads used by {@code DefaultControllerEnvironment}. This will lead to a memory leak.
      * @throws InvocationTargetException If there is an error invoking the constructor of {@code DefaultControllerEnvironment}.
      * @throws NoSuchFieldException If the {@code defaultEnvironment} field of {@link ControllerEnvironment} cannot be found.
      * @throws NoSuchMethodException If the {@code DefaultControllerEnvironment} class does not have a default constructor.
      */
-    private List<Controller> getControllers() throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException  {
+    private List<Controller> getControllers() throws ClassNotFoundException, IllegalAccessException, InstantiationException, InterruptedException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException {
         /*
          * At the time of writing, JInput does not support hot-swapping controllers. When you query the default
          * ControllerEnvironment, it will always return the same set of controllers.
          *
-         * To work around this issue, we need to hackily reinitialize the default environment.
+         * To work around this issue, we need to hackily reinitialize the default environment and kill all threads
+         * used by the old environment.
          */
+        for (final var thread : Thread.getAllStackTraces().keySet()) {
+            if (Arrays.asList(JINPUT_THREADS_TO_KILL).contains(thread.getClass().getName())) {
+                thread.interrupt();
+                thread.join();
+                break;
+            }
+        }
+
         Class<?> c = Class.forName("net.java.games.input.DefaultControllerEnvironment");
         Constructor<?> constructor = c.getDeclaredConstructor();
         constructor.setAccessible(true);
