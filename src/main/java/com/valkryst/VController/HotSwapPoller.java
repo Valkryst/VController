@@ -141,7 +141,6 @@ public class HotSwapPoller {
         for (final var thread : Thread.getAllStackTraces().keySet()) {
             if (Arrays.asList(JINPUT_THREADS_TO_KILL).contains(thread.getClass().getName())) {
                 thread.interrupt();
-                thread.join();
                 break;
             }
         }
