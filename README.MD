@@ -6,6 +6,7 @@ VController is a helper library for [JInput](https://github.com/jinput/jinput) w
 * Automatic polling of controller input events VIA [ControllerPoller](https://github.com/Valkryst/VController/blob/master/src/main/java/com/valkryst/VController/ControllerPoller.java).
 * Automatic detection of controller connection and disconnection events VIA [HotSwapPoller](https://github.com/Valkryst/VController/blob/master/src/main/java/com/valkryst/VController/HotSwapPoller.java).
   * As JInput does not natively support hot-swapping, this library uses a polling approach to detect it. The downside to this approach is that JInput may print messages to `System.err` on every poll. 
+  * **This _will_ cause a memory leak on Windows. A solution is being discussed [here](https://github.com/Valkryst/VController/issues/6).**
 * Interfaces to listen to controller and hot-swap events VIA [ControllerListener](https://github.com/Valkryst/VController/blob/master/src/main/java/com/valkryst/VController/ControllerListener.java) and [HotSwapListener](https://github.com/Valkryst/VController/blob/master/src/main/java/com/valkryst/VController/HotSwapListener.java).
 
 This library assumes that you have already [properly configured](https://jinput.github.io/jinput/) JInput and that it is working.
