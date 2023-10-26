@@ -162,11 +162,7 @@ public class HotSwapExample {
             }
         });
 
-        try {
-            hotswapPoller.start();
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
+        hotswapPoller.start();
 
         System.out.println("Polling for hot-swaps. Try adding or removing a controller.");
     }

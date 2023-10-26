@@ -37,18 +37,9 @@ public class HotSwapPoller {
      * <p>Starts polling the {@link Controller}s.</p>
      *
      * <p>See {@link ScheduledExecutorService#scheduleAtFixedRate(Runnable, long, long, TimeUnit)} for caveats.</p>
-     *
-     * @throws ClassNotFoundException If there is an error getting the {@link Controller}s.
-     * @throws IllegalAccessException  If there is an error getting the {@link Controller}s.
-     * @throws IllegalStateException If the {@link HotSwapPoller} is already running or if the current {@link ControllerEnvironment} is not supported.
-     * @throws InstantiationException If there is an error getting the {@link Controller}s.
-     * @throws InterruptedException If there is an error getting the {@link Controller}s.
-     * @throws InvocationTargetException  If there is an error getting the {@link Controller}s.
-     * @throws NoSuchFieldException  If there is an error getting the {@link Controller}s.
-     * @throws NoSuchMethodException  If there is an error getting the {@link Controller}s.
      */
-    public void start() throws ClassNotFoundException, IllegalAccessException, InstantiationException, InterruptedException, InvocationTargetException, NoSuchFieldException, NoSuchMethodException {
-        final var oldControllers = getControllers();
+    public void start() {
+        final var oldControllers = new ArrayList<Controller>();
 
         synchronized (this) {
             if (executorService != null) {
